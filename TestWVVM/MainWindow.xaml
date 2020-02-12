@@ -10,11 +10,11 @@
     mc:Ignorable="d"
     x:Class="TestWVVM.MainWindow"
     Title="{Binding ApplicationTitle}"
-    Height="{Binding ProgramSettings.Height,  Mode=TwoWay}" 
-    WindowState="{Binding ProgramSettings.WindowState,  Mode=TwoWay}" 
-    Width="{Binding ProgramSettings.Width, Mode=TwoWay}" 
-    Top="{Binding ProgramSettings.Top,  Mode=TwoWay}" 
-    Left="{Binding ProgramSettings.Left,  Mode=TwoWay}"
+    Height="{Binding ProgramSettings.Config.Height,  Mode=TwoWay}" 
+    WindowState="{Binding ProgramSettings.Config.WindowState,  Mode=TwoWay}" 
+    Width="{Binding ProgramSettings.Config.Width, Mode=TwoWay}" 
+    Top="{Binding ProgramSettings.Config.Top,  Mode=TwoWay}" 
+    Left="{Binding ProgramSettings.Config.Left,  Mode=TwoWay}"
     dx:DXSplashScreen.SplashScreenType="{x:Type local:SplashScreenView1}" 
      DataContext="{dxmvvm:ViewModelSource Type={x:Type ViewModels:MainViewModel}}">
     <dxmvvm:Interaction.Behaviors>

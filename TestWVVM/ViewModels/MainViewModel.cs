@@ -15,9 +15,9 @@ namespace TestWVVM.ViewModels
     {
         private string _currentFileLoaded = string.Empty;
    
-        public MySettings ProgramSettings{ get;set;}
+        public CConfigMng ProgramSettings{ get;set;}
 
-
+        
 
         public string ApplicationTitle
         {
@@ -35,7 +35,8 @@ namespace TestWVVM.ViewModels
 
         public MainViewModel()
         {
-            ProgramSettings = MySettings.Load() ?? new MySettings();
+            ProgramSettings = new CConfigMng();
+            ProgramSettings.LoadConfig();
         }
 
 
@@ -53,13 +54,14 @@ namespace TestWVVM.ViewModels
         [Command]
         public void Closed(EventArgs e)
         {
-            ProgramSettings.Save();
+            ProgramSettings.SaveConfig();
         }
 
         [Command]
         public void Save()
         {
-             ProgramSettings.Save();
+            ProgramSettings.Config.HightDiskretPanel = 100;
+             ProgramSettings.SaveConfig();
         }
 
     }
