@@ -96,6 +96,19 @@ namespace TestWVVM.Model
             private WindowState windowState;
             private string theme = "VS2017Dark";
 
+            private int widthAnalogPanel=100;
+
+            public int WidthAnalogPanel
+            {
+                get => widthAnalogPanel;
+                set
+                {
+                    if (value == widthAnalogPanel) return;
+                    widthAnalogPanel = value;
+                    OnPropertyChanged();
+                }
+            }
+
 
             public event PropertyChangedEventHandler PropertyChanged;
 

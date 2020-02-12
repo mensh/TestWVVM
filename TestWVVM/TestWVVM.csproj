@@ -45,9 +45,13 @@
     <Reference Include="DevExpress.Data.v19.2" />
     <Reference Include="DevExpress.Printing.v19.2.Core" />
     <Reference Include="DevExpress.Xpf.Core.v19.2" />
+    <Reference Include="DevExpress.Xpf.Docking.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Layout.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.LayoutControl.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Xpf.Ribbon.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Xpf.Themes.Office2019Colorful.v19.2" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
@@ -73,10 +77,14 @@
     <Compile Include="DXSplashScreen\SplashScreenView1.xaml.cs">
       <DependentUpon>SplashScreenView1.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\Convertr\Convertor.cs" />
     <Compile Include="Model\HelpClass\ClassUtils.cs" />
     <Compile Include="Model\HelpClass\Enums.cs" />
     <Compile Include="Model\ProgramSetting.cs" />
     <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Views\DockControl.xaml.cs">
+      <DependentUpon>DockControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\RibbonControl.xaml.cs">
       <DependentUpon>RibbonControl.xaml</DependentUpon>
     </Compile>
@@ -107,6 +115,10 @@
       <DependentUpon>MainView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\DockControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

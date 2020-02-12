@@ -7,12 +7,18 @@
     xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm" 
     xmlns:ViewModels="clr-namespace:TestWVVM.ViewModels"
     xmlns:views="clr-namespace:TestWVVM.Views"
-    mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="300">
+    mc:Ignorable="d" d:DesignHeight="800" d:DesignWidth="1000">
     <UserControl.DataContext>
         <ViewModels:MainViewModel/>
     </UserControl.DataContext>
     <Grid>
-        <views:RibbonControl VerticalAlignment="Top" />
-        <views:RibbonStatus VerticalAlignment="Bottom"></views:RibbonStatus>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <views:RibbonControl VerticalAlignment="Top" Grid.Row="0" />
+        <views:DockControl Panel.ZIndex="1" Grid.Row="1"/>
+        <views:RibbonStatus VerticalAlignment="Bottom" Grid.Row="2"></views:RibbonStatus>
     </Grid>
 </UserControl>

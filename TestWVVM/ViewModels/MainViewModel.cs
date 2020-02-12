@@ -17,8 +17,8 @@ namespace TestWVVM.ViewModels
         private AppSettings.MySettings programSettings;
         public AppSettings.MySettings ProgramSettings
         {
-            get => programSettings;
-            set => SetValue(ref programSettings, value);
+            get => GetProperty(()=>programSettings);
+            set => SetProperty(()=> programSettings, value);
         }
 
 
@@ -38,8 +38,7 @@ namespace TestWVVM.ViewModels
 
         public MainViewModel()
         {
-            programSettings = AppSettings.MySettings.Load();
-            if (programSettings == null) programSettings= new AppSettings.MySettings();
+            ProgramSettings = AppSettings.MySettings.Load() ?? new AppSettings.MySettings();
         }
 
 
