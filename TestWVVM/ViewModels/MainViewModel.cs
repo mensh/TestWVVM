@@ -14,12 +14,9 @@ namespace TestWVVM.ViewModels
     public class MainViewModel : ViewModelBase
     {
         private string _currentFileLoaded = string.Empty;
-        private AppSettings.MySettings programSettings;
-        public AppSettings.MySettings ProgramSettings
-        {
-            get => GetProperty(()=>programSettings);
-            set => SetProperty(()=> programSettings, value);
-        }
+   
+        public MySettings ProgramSettings{ get;set;}
+
 
 
         public string ApplicationTitle
@@ -38,7 +35,7 @@ namespace TestWVVM.ViewModels
 
         public MainViewModel()
         {
-            ProgramSettings = AppSettings.MySettings.Load() ?? new AppSettings.MySettings();
+            ProgramSettings = MySettings.Load() ?? new MySettings();
         }
 
 
@@ -57,6 +54,12 @@ namespace TestWVVM.ViewModels
         public void Closed(EventArgs e)
         {
             ProgramSettings.Save();
+        }
+
+        [Command]
+        public void Save()
+        {
+             ProgramSettings.Save();
         }
 
     }

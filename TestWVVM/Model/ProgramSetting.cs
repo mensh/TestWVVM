@@ -13,16 +13,18 @@ using TestWVVM.Model.HelpClass;
 
 namespace TestWVVM.Model
 {
-    public static class AppSettings
+ 
+    public class MySettings : myAppSettings<MySettings>, INotifyPropertyChanged
     {
-        public static MySettings Settings = MySettings.Load();
-
-        [Serializable]
-        public class MySettings : myAppSettings<MySettings>, INotifyPropertyChanged
-        {
-
 
             private int height=800;
+            private int width=1000;
+            private int left;
+            private int top;
+            private WindowState windowState;
+            private string theme = "VS2017Dark";
+            private int hightDiskretPanel = 200;
+            private int widthAnalogPanel=200;
 
             public int Height
             {
@@ -90,14 +92,6 @@ namespace TestWVVM.Model
                 }
             }
 
-            private int width=1000;
-            private int left;
-            private int top;
-            private WindowState windowState;
-            private string theme = "VS2017Dark";
-
-            private int widthAnalogPanel=100;
-
             public int WidthAnalogPanel
             {
                 get => widthAnalogPanel;
@@ -109,6 +103,21 @@ namespace TestWVVM.Model
                 }
             }
 
+            public int HightDiskretPanel
+            {
+                get => hightDiskretPanel;
+                set
+                {
+                    if (value == hightDiskretPanel) return;
+                    hightDiskretPanel = value;
+                    OnPropertyChanged();
+                }
+            }
+
+          
+
+            
+
 
             public event PropertyChangedEventHandler PropertyChanged;
 
@@ -117,7 +126,7 @@ namespace TestWVVM.Model
             {
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
             }
-        }
+    }
 
 
         public class myAppSettings<T> where T : new()
@@ -150,12 +159,17 @@ namespace TestWVVM.Model
                     {
                         MySettings st = new MySettings();
                         st.Save();
+                        t = (new JavaScriptSerializer()).Deserialize<T>(
+                            File.ReadAllText(ClassUtils.PathMyDocument() + fileName));
                     }
 
                     return t;
                 }
             }
         }
-    }
+
+
+
+
 
 

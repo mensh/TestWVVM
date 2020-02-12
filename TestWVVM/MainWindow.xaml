@@ -9,18 +9,18 @@
     xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
     mc:Ignorable="d"
     x:Class="TestWVVM.MainWindow"
-    Title="{Binding DataContext.ApplicationTitle, ElementName=TheMainView}"
-    Height="{Binding DataContext.ProgramSettings.Height, ElementName=TheMainView, Mode=TwoWay}" 
-    WindowState="{Binding DataContext.ProgramSettings.WindowState, ElementName=TheMainView, Mode=TwoWay}" 
-    Width="{Binding DataContext.ProgramSettings.Width, ElementName=TheMainView, Mode=TwoWay}" 
-    Top="{Binding DataContext.ProgramSettings.Top, ElementName=TheMainView, Mode=TwoWay}" 
-    Left="{Binding DataContext.ProgramSettings.Left, ElementName=TheMainView, Mode=TwoWay}"
+    Title="{Binding ApplicationTitle}"
+    Height="{Binding ProgramSettings.Height,  Mode=TwoWay}" 
+    WindowState="{Binding ProgramSettings.WindowState,  Mode=TwoWay}" 
+    Width="{Binding ProgramSettings.Width, Mode=TwoWay}" 
+    Top="{Binding ProgramSettings.Top,  Mode=TwoWay}" 
+    Left="{Binding ProgramSettings.Left,  Mode=TwoWay}"
     dx:DXSplashScreen.SplashScreenType="{x:Type local:SplashScreenView1}" 
-    dx:ThemeManager.ThemeName="{Binding DataContext.ProgramSettings.Theme, ElementName=TheMainView, Mode=TwoWay}">
+     DataContext="{dxmvvm:ViewModelSource Type={x:Type ViewModels:MainViewModel}}">
     <dxmvvm:Interaction.Behaviors>
-        <dxmvvm:EventToCommand EventName="Closing" PassEventArgsToCommand="True" Command="{Binding DataContext.ClosedCommand, ElementName=TheMainView}" />
+        <dxmvvm:EventToCommand EventName="Closed" PassEventArgsToCommand="True" Command="{Binding ClosedCommand}" />
     </dxmvvm:Interaction.Behaviors>
     <Grid>
-        <Views:MainView x:Name="TheMainView"/>
+        <Views:MainView />
     </Grid>
 </dx:ThemedWindow>
