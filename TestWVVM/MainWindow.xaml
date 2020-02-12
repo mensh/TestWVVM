@@ -1,0 +1,26 @@
+﻿<dx:ThemedWindow
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:Views="clr-namespace:TestWVVM.Views"
+    xmlns:ViewModels="clr-namespace:TestWVVM.ViewModels"
+    xmlns:local="clr-namespace:TestWVVM" xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+    mc:Ignorable="d"
+    x:Class="TestWVVM.MainWindow"
+    Title="{Binding DataContext.ApplicationTitle, ElementName=TheMainView}"
+    Height="{Binding DataContext.ProgramSettings.Height, ElementName=TheMainView, Mode=TwoWay}" 
+    WindowState="{Binding DataContext.ProgramSettings.WindowState, ElementName=TheMainView, Mode=TwoWay}" 
+    Width="{Binding DataContext.ProgramSettings.Width, ElementName=TheMainView, Mode=TwoWay}" 
+    Top="{Binding DataContext.ProgramSettings.Top, ElementName=TheMainView, Mode=TwoWay}" 
+    Left="{Binding DataContext.ProgramSettings.Left, ElementName=TheMainView, Mode=TwoWay}"
+    dx:DXSplashScreen.SplashScreenType="{x:Type local:SplashScreenView1}" 
+    dx:ThemeManager.ThemeName="{Binding DataContext.ProgramSettings.Theme, ElementName=TheMainView, Mode=TwoWay}">
+    <dxmvvm:Interaction.Behaviors>
+        <dxmvvm:EventToCommand EventName="Closing" PassEventArgsToCommand="True" Command="{Binding DataContext.ClosedCommand, ElementName=TheMainView}" />
+    </dxmvvm:Interaction.Behaviors>
+    <Grid>
+        <Views:MainView x:Name="TheMainView"/>
+    </Grid>
+</dx:ThemedWindow>
