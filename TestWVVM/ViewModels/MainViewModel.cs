@@ -39,6 +39,7 @@ namespace TestWVVM.ViewModels
         public MainViewModel()
         {
             programSettings = AppSettings.MySettings.Load();
+            if (programSettings == null) programSettings= new AppSettings.MySettings();
         }
 
 
