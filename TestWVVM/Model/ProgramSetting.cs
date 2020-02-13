@@ -23,8 +23,7 @@ namespace TestWVVM.Model
         private int top;
         private WindowState windowState;
         private string theme = "VS2017Dark";
-        private int hightDiskretPanel;
-        private int widthAnalogPanel;
+
 
         public int Height
         {
@@ -92,27 +91,6 @@ namespace TestWVVM.Model
             }
         }
 
-        public int WidthAnalogPanel
-        {
-            get => widthAnalogPanel;
-            set
-            {
-                if (value == widthAnalogPanel) return;
-                widthAnalogPanel = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public int HightDiskretPanel
-        {
-            get => hightDiskretPanel;
-            set
-            {
-                if (value == hightDiskretPanel) return;
-                hightDiskretPanel = value;
-                OnPropertyChanged();
-            }
-        }
 
 
         public event PropertyChangedEventHandler PropertyChanged;

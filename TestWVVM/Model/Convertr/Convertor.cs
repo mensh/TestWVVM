@@ -19,12 +19,17 @@ namespace TestWVVM.Model.Convertr
 
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return new GridLength(System.Convert.ToInt32(value));
+            double val = (double)value;
+            GridLength gridLength = new GridLength(val);
+
+            return gridLength;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return ((GridLength)value).Value;
+            GridLength val = (GridLength)value;
+
+            return val.Value;
         }
     }
 }

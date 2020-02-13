@@ -12,7 +12,7 @@
             <dxr:RibbonDefaultPageCategory Caption="Файл">
                 <dxr:RibbonPage Caption="Главная">
                     <dxr:RibbonPageGroup Caption="Файл">
-                        <dxb:BarButtonItem Content="Открыть" LargeGlyph="/TestWVVM;component/Images/icons8_opened_folder_32px_2.png" Command="{Binding OpenCommand}" Glyph="/TestWVVM;component/Images/icons8_opened_folder_16px_1.png"/>
+                        <dxb:BarButtonItem Content="Открыть" LargeGlyph="/TestWVVM;component/Images/icons8_opened_folder_32px_2.png" Command="{Binding  OpenCommand}" Glyph="/TestWVVM;component/Images/icons8_opened_folder_16px_1.png"/>
                         <dxb:BarButtonItem Content="Сохранить" LargeGlyph="/TestWVVM;component/Images/icons8_save_32px_1.png"  Command="{Binding SaveCommand}" Glyph="/TestWVVM;component/Images/icons8_save_16px_1.png"/>
                     </dxr:RibbonPageGroup>
                 </dxr:RibbonPage>

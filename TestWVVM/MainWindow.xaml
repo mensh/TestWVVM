@@ -18,7 +18,7 @@
     dx:DXSplashScreen.SplashScreenType="{x:Type local:SplashScreenView1}" 
      DataContext="{dxmvvm:ViewModelSource Type={x:Type ViewModels:MainViewModel}}">
     <dxmvvm:Interaction.Behaviors>
-        <dxmvvm:EventToCommand EventName="Closed" PassEventArgsToCommand="True" Command="{Binding ClosedCommand}" />
+        <dxmvvm:EventToCommand EventName="Closed" PassEventArgsToCommand="True" Command="{Binding myCommand.ClosedCommand}" />
     </dxmvvm:Interaction.Behaviors>
     <Grid>
         <Views:MainView />

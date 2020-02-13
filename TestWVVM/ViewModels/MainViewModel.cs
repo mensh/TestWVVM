@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Forms;
 using DevExpress.Mvvm;
 using DevExpress.Mvvm.DataAnnotations;
+using DevExpress.Xpf.Core.Serialization;
 using TestWVVM.Model;
 
 
@@ -16,8 +17,8 @@ namespace TestWVVM.ViewModels
         private string _currentFileLoaded = string.Empty;
    
         public CConfigMng ProgramSettings{ get;set;}
+   
 
-        
 
         public string ApplicationTitle
         {
@@ -35,13 +36,13 @@ namespace TestWVVM.ViewModels
 
         public MainViewModel()
         {
+           
             ProgramSettings = new CConfigMng();
             ProgramSettings.LoadConfig();
         }
 
-
         [Command]
-        public virtual void Open()
+        public void Open()
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             if (openFileDialog.ShowDialog() == DialogResult.OK)
@@ -60,9 +61,9 @@ namespace TestWVVM.ViewModels
         [Command]
         public void Save()
         {
-            ProgramSettings.Config.HightDiskretPanel = 100;
-             ProgramSettings.SaveConfig();
+
         }
+
 
     }
 }

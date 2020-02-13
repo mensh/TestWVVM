@@ -12,10 +12,10 @@
         <dxdo:DockLayoutManager>
             <dxdo:LayoutGroup Orientation="Horizontal">
                 <dxdo:LayoutGroup Grid.Column="0" Orientation="Vertical">
-                    <dxdo:LayoutPanel Caption="Дискретные параметры" ItemHeight="{Binding ProgramSettings.Config.HightDiskretPanel, Converter={convertr:CV}, Mode=TwoWay}"/>
+                    <dxdo:LayoutPanel Caption="Дискретные параметры" ItemHeight="0.4*"/>
                     <dxdo:LayoutPanel Caption="График"/>
                 </dxdo:LayoutGroup>
-                <dxdo:LayoutPanel Caption="Аналоговые параметры" ItemWidth="{Binding ProgramSettings.Config.WidthAnalogPanel, Converter={convertr:CV}, Mode=TwoWay}"/>
+                <dxdo:LayoutPanel Caption="Аналоговые параметры" ItemWidth="0.4*"/>
             </dxdo:LayoutGroup>
 
         </dxdo:DockLayoutManager>
